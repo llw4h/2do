@@ -8,5 +8,5 @@ A To Do List App built with C#, Asp.NET Core MVC CRUD Operations and Entity Fram
 * Delete tasks
 
 ### Some Screenshots
-![Screenshot](S1.png)
-![Screenshot](S2.png)
+![Screenshot](s1.png)
+![Screenshot](s2.png)
