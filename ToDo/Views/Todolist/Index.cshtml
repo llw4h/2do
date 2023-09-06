@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ToDo.Models.EF.Todolist>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>To Do List</h1>
+
+<p>
+    <a asp-action="AddOrEdit">Add Task</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Task)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Priority)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateCreated)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Task)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Priority)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.DateCreated)
+            </td>
+            <td>
+                <a asp-action="AddOrEdit" asp-route-id="@item.Id">Edit</a>
+                <form asp-action="Delete" asp-route-id="@item.Id">
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this task?')">
+                    <i class="far fa-trash-alt"></i>
+                    </button>
+                </form>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
